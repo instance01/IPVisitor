@@ -13,22 +13,36 @@ void process(string address, string address2, int count);
 void request(string address, string address2);
 
 int main(int argc, char* argv[]){
-	printf("Usage example: instancelabs.eu5.org /downloads.php 10\n");
-	if (argc > 2){
+	printf("Usage example: instancelabs.eu5.org/downloads.php 10\n");
+	if (argc > 1){
 		string address = argv[0];
-		string address2 = argv[1];
-		int count = atoi(argv[2]);
+		string address2 = "";
+		int count = atoi(argv[1]);
+		if (address.find("http://") != string::npos){
+			address = address.substr(7);
+		}
+		size_t pos = address.find("/");
+		if (pos != string::npos){
+			address2 = address.substr(pos);
+			address = address.substr(0, pos);
+		}
 		process(address, address2, count);
 	}else{
-		printf(" Address > ");
 		string address;
-		cin >> address;
-		printf(" Address2 > ");
 		string address2;
-		cin >> address2;
-		printf("\n Count > ");
 		int count;
+		printf(" Address > ");
+		cin >> address;
+		printf("\n Count > ");
 		cin >> count;
+		if (address.find("http://") != string::npos){
+			address = address.substr(7);
+		}
+		size_t pos = address.find("/");
+		if (pos != string::npos){
+			address2 = address.substr(pos);
+			address = address.substr(0, pos);
+		}
 		process(address, address2, count);
 	}
 	
