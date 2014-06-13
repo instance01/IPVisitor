@@ -1,7 +1,7 @@
 IPVisitor
 =========
 
-Autovisits a link with different header IPs a given times.
+Autovisits a link with different http header IPs and OS versions a given times.
 
 
 ```
