@@ -14,10 +14,10 @@ void request(string address, string address2);
 
 int main(int argc, char* argv[]){
 	printf("Usage example: instancelabs.eu5.org/downloads.php 10\n");
-	if (argc > 1){
-		string address = argv[0];
+	if (argc > 2){
+		string address = argv[1];
 		string address2 = "";
-		int count = atoi(argv[1]);
+		int count = atoi(argv[2]);
 		if (address.find("http://") != string::npos){
 			address = address.substr(7);
 		}
